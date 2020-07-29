@@ -38,10 +38,16 @@ python3 manage.py runserver
 6- Add the templates file address in the settings file:
 'DIRS': [(os.path.join(BASE_DIR, 'templates')),],
 
-7- add the static directory:
+7- add the static directory at the end of settings:
 //STATICFILES_DIRS (os.path.join(BASE_DIR, 'static'),)
 
-8- add the statics to index:
+8- add the statics to base and all the other pages:
 //{% load static %}
-9- link css:
+
+9- link css on base:
 //{% static 'style.css' %}
+
+9- link css on other pages:
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
