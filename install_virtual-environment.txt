@@ -1,0 +1,47 @@
+- open vscode in the dedicated folder:
+code .
+
+- create a virtual environment:
+virtualenv venv
+
+- activate the virtual environment:
+. venv/bin/activate
+
+- ALWAYS RUN IN A VIRTUAL ENVIRONMENT
+
+- read the file
+less requirements.txt (Ctrl+z to get out)
+
+- install all the dependencies listed in requirements.txt file:
+pip3 install -r requirements.txt
+
+- apply migration 
+python3 manage.py migrate
+
+- run the app:
+python3 manage.py runserver
+
+----------Start on the project-------------
+1- add the news app in settings.py of django folder(here she_codes_news folder
+
+2- check the model of the news installed in models.py in news folder
+
+3- install the model: 
+//python3 manage.py makemigrations
+//python3 manage.py migrate
+4- Add news.urls file of News app in urls file of django folder
+
+5- Looked at the json and load the jsonfile data
+(django will automatically look for a fixtures folder in each app and load any json in it)
+//python3 manage.py loaddata news
+
+6- Add the templates file address in the settings file:
+'DIRS': [(os.path.join(BASE_DIR, 'templates')),],
+
+7- add the static directory:
+//STATICFILES_DIRS (os.path.join(BASE_DIR, 'static'),)
+
+8- add the statics to index:
+//{% load static %}
+9- link css:
+//{% static 'style.css' %}
