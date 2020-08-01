@@ -6,9 +6,14 @@
 {% endblock %}
 
 {% block content %}
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="submit">
-</form>
+
+<div class="story-form">
+    <h2> Be Creative!</h2>
+    <form action="" method="post" id="create-story-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="submit">
+    </form>
+</div>
+
 {% endblock %}
