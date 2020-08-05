@@ -51,3 +51,10 @@ python3 manage.py runserver
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
+
+10- In dev mode, we have to delete the db to create users form:
+ - first save the dtata in a json in the fixtures folder
+ python3 manage.py dumpdata news
+
+ - then after makemigration and migrate, reload the data 
+ python3 manage.py loaddata news
