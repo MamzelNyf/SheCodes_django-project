@@ -40,7 +40,6 @@ class StoryForm(ModelForm):
                 attrs={
                     'placeholder': 'Add the Url of your image',
                     'class': 'text_field',
-
                 })
             
         }
