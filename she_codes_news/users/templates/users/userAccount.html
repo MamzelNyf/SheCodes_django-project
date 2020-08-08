@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
+{% block title %}{{ user }} Account{% endblock %}
+
 {% block content %}
-<h2>User Account</h2>
-<p>Hello {{ user }}</p>
+{% if user.is_authenticated %}
+    <h2>User Account</h2>
+    <p>Hello {{ user }}</p>
+    <p>Your email:</p><p>{{ user.email }}</p>
+    <p>Your profile picture:</p><img src="{{ user.image }}" alt="{{ user}} picture">
+    <p>Your email:</p><p>{{ user.birth_date }}</p>
+    <a href="{% url 'users:updateProfile' request.user.id %}">Update your profile</a>
+
+
+
+{% else %}
+    <a href="{% url 'login' %}">Login to be able to see your profile</a>
+{% endif %}
+
+
 {% endblock %}

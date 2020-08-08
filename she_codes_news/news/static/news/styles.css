@@ -92,25 +92,3 @@
     width: 50%;
 }
 
-
-/* Forms style */ 
-.story-form{
-    width: 70%;
-    margin: 0 auto;
-    padding: 10% 0;
-    background-color: aliceblue;
-}
-#create-story-form label{
-    width: 30%;
-    display: inline-block;
-    text-align: right;
-}
-#create-story-form .text_field{
-    font-family: monospace;
-    min-width: 210px;
-}
-#create-story-form input[type=submit]{
-margin: 0 0 0 32%;
-padding: 10px;
-font-family: 'Montserrat Subrayada', sans-serif;
-}
