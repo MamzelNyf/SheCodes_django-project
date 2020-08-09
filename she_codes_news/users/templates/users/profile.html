@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+{% block title %}{{ user.username }} Profile{% endblock %}
+{% block content %}
+<div class="">
+    <img class="profile" src="{{ user.profile.image.url }}" alt="{{ user.username }} profile picture">
+    <div>
+    <h2>{{ user.username }} Profile</h2>
+    <p>{{ user.birth_date }}</p>
+    <p>{{ user.email }}</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.utils import timezone
 
 
 class NewsStory(models.Model):
-    title = models.CharField(max_length=200)
-    
-    pub_date = models.DateTimeField()
+    title = models.CharField(max_length=100)
+    pub_date = models.DateTimeField(default=timezone.now)
     content = models.TextField()
     # image = models.ImageField()
     image = models.URLField()

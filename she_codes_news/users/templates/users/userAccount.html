@@ -7,13 +7,11 @@
     <p>Hello {{ user }}</p>
     <p>Your email:</p><p>{{ user.email }}</p>
     <p>Your profile picture:</p><img src="{{ user.image }}" alt="{{ user}} picture">
-    <p>Your email:</p><p>{{ user.birth_date }}</p>
-    <a href="{% url 'users:updateProfile' request.user.id %}">Update your profile</a>
-
-
+    <p>Your birth date:</p><p>{{ user.birth_date }}</p>
+    <button><a href="{% url 'users:updateProfile' request.user.id %}">Update your profile</a></button>
 
 {% else %}
-    <a href="{% url 'login' %}">Login to be able to see your profile</a>
+    <a href="{% url 'login' %}?next={{request.path}}">Login to be able to see your profile</a>
 {% endif %}
 
 
