@@ -14,15 +14,13 @@
     </head>
 
     <body>
-        <header>
-            <div id="header-text">
-                <a id="header-link" href="{% url 'news:index' %}">
+        {% include './nav.html' %}
+            <header> 
+                <a href="{% url 'news:index' %}">
+                    <img src="{% static 'logo.svg' %}" alt="Cupcake Logo" width="100px">
                     <h1>She {Codes} News</h1>
                 </a>
-            </div>
-            <!-- include nav here -->
-            {% include './nav.html' %}
-        </header>
+            </header>
 
         <!-- content blocks here -->
         <!-- This is where the content of other template comes -->

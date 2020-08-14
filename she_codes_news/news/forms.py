@@ -72,7 +72,6 @@ class AddCategoryForm(ModelForm):
             'name' : forms.TextInput(
                 attrs={
                 'class': 'text_field',
-                'placeholder' : 'Category Name',
                 }),
         }
 

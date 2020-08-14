@@ -29,15 +29,17 @@ class AddStoryView(LoginRequiredMixin, generic.CreateView):
 class IndexView(generic.ListView):
     # see a lsit of the stories ListView
     template_name = 'news/index.html'
+    cats = Category.objects.all()
 
     def get_queryset(self):
         '''Return all news stories.'''
         return NewsStory.objects.all()
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context['latest_stories'] = NewsStory.objects.order_by('-pub_date')[:4]
         context['all_stories'] = NewsStory.objects.order_by('-pub_date')
+        context['cat_menu'] = Category.objects.all() 
         return context
 
 class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
@@ -45,7 +47,9 @@ class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateVie
     model = NewsStory
     form_class = UpdateStoryForm
     template_name = 'news/updateStory.html'
-    success_url = reverse_lazy('news:story')
+
+    def get_absolute_url(self):
+        return reverse('news:story', kwargs={'pk':self.pk})
 
     def form_valid(self, form):
         form.instance.author = self.request.user
