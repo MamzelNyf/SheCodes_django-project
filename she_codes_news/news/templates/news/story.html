@@ -10,7 +10,9 @@
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <img src="{{ story.author.profile.avatar.url }}">
-    <a href="{% url 'news:author'%}">{{ story.author }}</a>
+    <p>{{ story.category}}</p>
+
+    <a href="{% url 'news:author' story.author.pk %}">{{ story.author }}</a>
     <p>{{ story.pub_date |date:" d F, Y"}}</p>
     <div id="story-content">
         <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{Create your story{% endblock %}
+{% block title %}Create your story{% endblock %}
 
 
 {% block stylesheets %}
@@ -11,10 +11,12 @@
 <!-- {% if user.is_authenticated %} use mixin on views class to automatically redirect to login page if not logged in-->
     <div class="story-form">
         <h2> Be Creative!</h2>
+        <p>You don't find the right category for your post?</p>
+        <a href="{% url 'news:addCategory' %}">Add a category</a>
         <form action="" method="post" id="create-story-form" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="submit">
+            <input type="submit" value="Submit your Story">
         </form>
     </div>
 <!-- {% else %} -->

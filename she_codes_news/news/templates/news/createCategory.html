@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Create a category{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="story-form">
+        <h2> Create a category</h2>
+        <form action="" method="post" id="create-story-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit your category">
+        </form>
+    </div>
+{% endblock %}

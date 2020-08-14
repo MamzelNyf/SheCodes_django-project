@@ -1,11 +1,17 @@
 from django import forms
 from django.forms import ModelForm
-from .models import NewsStory
+from .models import NewsStory, Category
+
+choices = Category.objects.all().values_list('name', 'name')
+# select box needs double name to work
+choice_list=[]
+for item in choices:
+    choice_list.append(item)
 
 class StoryForm(ModelForm):
     class Meta:
         model = NewsStory
-        fields = ['title', 'pub_date', 'content', 'image']
+        fields = ['title', 'pub_date', 'category', 'content', 'image']
         labels = {
             'title': 'Story Title:',
             # 'author': 'Your name :',
@@ -15,15 +21,11 @@ class StoryForm(ModelForm):
         }
         widgets ={
             'title' : forms.TextInput(
-                attrs={
-                'class': 'text_field',
-                'placeholder' : 'Story Title',
-                }),
-            # 'author' : forms.TextInput(
-            #     attrs={
-            #     'class': 'text_field',
-            #     'placeholder' : 'Your name',
-            #     }),
+                attrs={'class': 'text_field','placeholder' : 'Story Title',}),
+            'category': forms.Select(
+                choices=choice_list, 
+                # choices has to be befor attrs
+                attrs={'class': 'select'}),
             'content' : forms.Textarea(
                 attrs={
                     'class': 'text_field',
@@ -36,14 +38,8 @@ class StoryForm(ModelForm):
                     'placeholder': 'Select a date',
                     'type': 'date',
                 }),          
-            # 'image': forms.URLInput(
-            #     attrs={
-            #         'placeholder': 'Add the Url of your image',
-            #         'class': 'text_field',
-            #     })
-            
         }
-class updateStoryForm(ModelForm):
+class UpdateStoryForm(ModelForm):
     class Meta:
         model = NewsStory
         fields = ['title', 'content', 'image']
@@ -65,3 +61,18 @@ class updateStoryForm(ModelForm):
                     'size': '40'}),
         }
         
+class AddCategoryForm(ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+        labels = {
+            'name': 'Your category:',
+        }
+        widgets ={
+            'name' : forms.TextInput(
+                attrs={
+                'class': 'text_field',
+                'placeholder' : 'Category Name',
+                }),
+        }
+

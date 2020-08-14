@@ -10,7 +10,11 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('<int:pk>/', views.StoryView.as_view(), name='story'),
     path('add-story/', views.AddStoryView.as_view(), name="addNewsStory"),
+    path('add-category/', views.AddCategoryView.as_view(), name="addCategory"),
     path('<int:pk>/update/', views.UpdateStoryView.as_view(), name='updateStory'),
     path('<int:pk>/delete/', views.DeleteStoryView.as_view(), name='deleteStory'),
     path('author/<int:pk>', views.AuthorView.as_view(), name='author'),
+    path('category/<str:cats>/', views.CategoryView, name='category'),
+
+
 ]

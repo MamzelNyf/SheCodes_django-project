@@ -1,8 +1,8 @@
+from django.conf import settings
 from django.db import models
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
 from django.utils import timezone
 from PIL import Image
-
 
 class NewsStory(models.Model):
     title = models.CharField(max_length=100)
@@ -12,7 +12,8 @@ class NewsStory(models.Model):
     image = models.ImageField(default=None, upload_to='story_pics')
     # author = models.CharField(max_length=200)
     author = models.ForeignKey(
-        get_user_model(),
+        # get_user_model(),
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name='published_stories'
     )
