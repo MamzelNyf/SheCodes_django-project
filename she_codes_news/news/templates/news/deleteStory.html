@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete your story{% endblock %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="story-form">
+        <h2> Are your sure you want to delete the post "{{ object.title }}</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Yes, Delete">
+            <a class="" href="{% url 'news:story' object.id %}">Cancel></a>
+            <!-- when not context defined in views, use object to target the actual post -->
+
+        </form>
+    </div>
+{% endblock %}

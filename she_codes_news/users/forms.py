@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Profile
 from django.forms import ModelForm
 
 
@@ -10,21 +10,15 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['username', 'email']
 
-class CustomUserChangeForm(UserChangeForm):
-
+class CustomUserChangeForm(ModelForm):
     class Meta:
         model = CustomUser
         fields = ['username', 'email']
+        exclude = ['password2', 'password1']
 
-
-class ProfileForm(ModelForm):
-    class Meta:
-        model = CustomUser
-        fields = ['username', 'email', ]
         labels = {
             'username': 'Choose your username:',
-            'email': 'Change your email:',
-
+            'email': 'Update your email:'
         }
         widgets ={
             'username' : forms.TextInput(
@@ -32,10 +26,30 @@ class ProfileForm(ModelForm):
                 'class': 'text_field',
                 'placeholder' : 'your username',
                 }),
-            'content' : forms.TextInput(
+            'email' : forms.TextInput(
                 attrs={
                     'class': 'text_field',
                     'placeholder' : 'your email',
                 }),
-            
+        }
+        
+
+class ProfileUpdateForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['avatar', 'bio', 'location', 'birth_date']
+        labels = {
+            'birth_date': 'Update your date of birth:',
+            'avatar': 'Choose your profile picture:',
+            'bio': 'Update your bio',
+            'location': 'Where do you write from?',
+        }
+        widgets ={
+            'birth_date': forms.DateInput(
+                # format=('%m/%d/%Y'),
+                attrs={
+                    'class': 'form-control text_field',
+                    'type': 'date',
+                }),         
+                'avatar' :forms.FileInput,
             }

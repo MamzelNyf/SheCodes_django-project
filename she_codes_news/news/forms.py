@@ -36,11 +36,32 @@ class StoryForm(ModelForm):
                     'placeholder': 'Select a date',
                     'type': 'date',
                 }),          
-            'image': forms.URLInput(
-                attrs={
-                    'placeholder': 'Add the Url of your image',
-                    'class': 'text_field',
-                })
+            # 'image': forms.URLInput(
+            #     attrs={
+            #         'placeholder': 'Add the Url of your image',
+            #         'class': 'text_field',
+            #     })
             
+        }
+class updateStoryForm(ModelForm):
+    class Meta:
+        model = NewsStory
+        fields = ['title', 'content', 'image']
+        labels = {
+            'title': 'Story Title:',
+            'content': 'Your story:',
+            'image': 'Your image url',
+        }
+        widgets ={
+            'title' : forms.TextInput(
+                attrs={
+                'class': 'text_field',
+                'placeholder' : 'Story Title',
+                }),
+            'content' : forms.Textarea(
+                attrs={
+                    'class': 'text_field',
+                    'placeholder' : 'Write your story here',
+                    'size': '40'}),
         }
         

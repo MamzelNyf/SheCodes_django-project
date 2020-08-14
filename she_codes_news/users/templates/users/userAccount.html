@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+<!-- {% extends 'base.html' %}
 {% block title %}{{ user }} Account{% endblock %}
 
 {% block content %}
@@ -6,7 +6,7 @@
     <h2>User Account</h2>
     <p>Hello {{ user }}</p>
     <p>Your email:</p><p>{{ user.email }}</p>
-    <p>Your profile picture:</p><img src="{{ user.image }}" alt="{{ user}} picture">
+    <p>Your profile picture:</p><img src="{{ user.avatar }}" alt="{{ user}} picture">
     <p>Your birth date:</p><p>{{ user.birth_date }}</p>
     <button><a href="{% url 'users:updateProfile' request.user.id %}">Update your profile</a></button>
 
@@ -15,4 +15,4 @@
 {% endif %}
 
 
-{% endblock %}
+{% endblock %} -->

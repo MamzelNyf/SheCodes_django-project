@@ -1,23 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{Create your story{% endblock %}
-
+{% block title %}Update your story{% endblock %}
 
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
 {% endblock %}
 
 {% block content %}
-<!-- {% if user.is_authenticated %} use mixin on views class to automatically redirect to login page if not logged in-->
     <div class="story-form">
-        <h2> Be Creative!</h2>
+        <h2>Update your story</h2>
         <form action="" method="post" id="create-story-form" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="submit">
+            <input type="submit" value="Update">
         </form>
     </div>
-<!-- {% else %} -->
-    <a href="{% url 'login' %}?next={{request.path}}">Login to create a Story</a>
-<!-- {% endif %}  -->
 {% endblock %}

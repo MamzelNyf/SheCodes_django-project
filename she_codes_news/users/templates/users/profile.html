@@ -7,12 +7,31 @@
 {% block title %}{{ user.username }} Profile{% endblock %}
 {% block content %}
 <div class="">
-    <img class="profile" src="{{ user.profile.image.url }}" alt="{{ user.username }} profile picture">
+    <img class="profile" src="{{ user.profile.avatar.url }}" alt="{{ user.username }} profile picture">
     <div>
-    <h2>{{ user.username }} Profile</h2>
+        <ul>
+            <li>Username: {{ user.username }}</li>
+            <li>Email: {{ user.email }}</li>
+            <li>Location: {{ user.profile.location }}</li>
+            <li>Birth Date: {{ user.profile.birth_date | date:"d M Y" }}</li>
+            <li>Bio: {{ user.profile.bio }}</li>
+
+        </ul>
+    <!-- <h2>{{ user.username }} Profile</h2>
     <p>{{ user.birth_date }}</p>
-    <p>{{ user.email }}</p>
-    </div>
+    <p>{{ user.email }}</p> -->
+    <!-- </div>
+    <div>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ u_form.as_p }}
+            {{ p_form.as_p }}
+            <input type="submit" value="Update">
+        </form>
+    </div> -->
+    <a href=" {% url 'updateProfile'%}">Update your profile</a>
+
+
 </div>
 
 {% endblock %}

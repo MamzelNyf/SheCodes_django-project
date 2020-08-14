@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %}{{ story.title }}{% endblock %}
 
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
@@ -8,12 +9,21 @@
 {% block content %}
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
+    <img src="{{ story.author.profile.avatar.url }}">
+    <a href="{% url 'news:author'%}">{{ story.author }}</a>
+    <p>{{ story.pub_date |date:" d F, Y"}}</p>
     <div id="story-content">
-        <img src="{{ story.image|default:'https://picsum.photos/600' }}"> 
-        
+        <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
         <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
         {{ story.content|linebreaks }}
+    </div>
+    <div>
+        {% if story.author == user %}
+        <div>
+            <a href="{% url 'news:updateStory' story.id %} ">Update</a>
+            <a href="{% url 'news:deleteStory' story.id %} ">Delete</a>
+        </div>    
+        {% endif %}
     </div>
 </div>
 {% endblock %}
