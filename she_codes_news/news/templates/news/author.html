@@ -9,15 +9,17 @@
     
     {% block content %}
 
-    <h2>{{ author.username }} stories</h2>
-    <div>
-        <img class="profile" src="{{ author.profile.avatar.url }}" alt="{{ author.username }} profile picture">
-        <p>{{ author.username }}</p>
-    </div>
-    <div>
-            {% for story in author.published_stories.all %}
-                {% include "./storyCard.html" with story=story %}
-            {% endfor %}
+    <div class="container">
+        <h2>{{ author.username }} stories</h2>
+        <div>
+            <img class="profile" src="{{ author.profile.avatar.url }}" alt="{{ author.username }} profile picture">
+            <p>{{ author.username }}</p>
+        </div>
+        <div>
+                {% for story in author.published_stories.all %}
+                    {% include "./storyCard.html" with story=story %}
+                {% endfor %}
+        </div>
     </div>
 
     {% endblock %}

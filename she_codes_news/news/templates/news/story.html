@@ -7,13 +7,14 @@
 {% endblock %}
 
 {% block content %}
-<div id="story-wrapper">
+<div class="container">
     <h2>{{ story.title }}</h2>
-    <img src="{{ story.author.profile.avatar.url }}">
-    <p>{{ story.category}}</p>
-
-    <a href="{% url 'news:author' story.author.pk %}">{{ story.author }}</a>
-    <p>{{ story.pub_date |date:" d F, Y"}}</p>
+    <div class="container-profile">
+        <img class="profile-avatar" src="{{ story.author.profile.avatar.url }}">
+        <p>{{ story.category}}</p>
+        <a href="{% url 'news:author' story.author.pk %}">{{ story.author }}</a>
+        <p>{{ story.pub_date |date:" d F, Y"}}</p> 
+    </div>
     <div id="story-content">
         <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
         <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
@@ -22,10 +23,11 @@
     <div>
         {% if story.author == user %}
         <div>
-            <a href="{% url 'news:updateStory' story.id %} ">Update</a>
-            <a href="{% url 'news:deleteStory' story.id %} ">Delete</a>
+            <a href="{% url 'news:updateStory' story.id %} " class="btn">Update</a>
+            <a href="{% url 'news:deleteStory' story.id %} " class="btn">Delete</a>
         </div>    
         {% endif %}
     </div>
+   
 </div>
 {% endblock %}

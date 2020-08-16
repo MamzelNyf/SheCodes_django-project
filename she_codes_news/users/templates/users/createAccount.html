@@ -3,15 +3,17 @@
 {% block title %}Create your account{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <p>You are laready logged in.</p>
-    <a href="{% url 'news:index' %}">Go back Home</a>
-{% else %}
-    <h2>Create Account</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Create Account</button>
-    </form>
-{% endif %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <p>You are laready logged in.</p>
+        <a href="{% url 'news:index' %}">Go back Home</a>
+    {% else %}
+        <h2>Create Account</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Create Account</button>
+        </form>
+    {% endif %}
+</div="container">
 {% endblock %}

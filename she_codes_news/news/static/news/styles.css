@@ -38,17 +38,9 @@
 }
 
 /* Story Card */
-.container-story-card{
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-}
-.all-stories{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap:wrap
-}
+
 .story-card{
-    width:30%;
+    width:100%;
     background: var(--white);
     border-radius: 4px;
     box-shadow: var(--bs);
@@ -136,7 +128,20 @@
     color: var(--white);
     text-decoration: none;
 }
-
+@media (min-width: 600px){
+    .container-story-card{
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+    .all-stories{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap:wrap
+    }
+    .story-card{
+        width:30%;
+    }
+}
 
 /* Profile */
 

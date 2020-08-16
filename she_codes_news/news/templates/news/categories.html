@@ -10,30 +10,32 @@
 
 {% block content %}
     
-<h2>{{ cats }}</h2>
-
-<div class="container container-story-card">
-    <div class="all-stories">
-        {% if category_post %}
-            {% for story in category_post %}
-                {% include "./storyCard.html" with story=story %}`
-            {% endfor %}
-        {% else %}
-            <h2>Sorry this page doesn't exist</h2>
-        {% endif %}
-    </div>
-    <div class="column-links">
-        {% if user.is_authenticated %}
-        <a href="{% url 'news:addNewsStory' %}">Write a new Story</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login to create a Story</a>
-        {% endif %}
-        <!-- Categories -->
-        {% if cat_menu %}
-            {% for item in cat_menu %}
-            <a href="{% url 'news:category' item.id %}">{{ item }}</a>
-            {% endfor %}
-        {% endif %}
+<div class="container">
+    <h2>{{ cats }}</h2>
+    
+    <div class=" container-story-card">
+        <div class="all-stories">
+            {% if category_post %}
+                {% for story in category_post %}
+                    {% include "./storyCard.html" with story=story %}`
+                {% endfor %}
+            {% else %}
+                <h2>Sorry this page doesn't exist</h2>
+            {% endif %}
+        </div>
+        <div class="column-links">
+            {% if user.is_authenticated %}
+            <a href="{% url 'news:addNewsStory' %}">Write a new Story</a>
+            {% else %}
+            <a href="{% url 'login' %}">Login to create a Story</a>
+            {% endif %}
+            <!-- Categories -->
+            {% if cat_menu %}
+                {% for item in cat_menu %}
+                <a href="{% url 'news:category' item.id %}">{{ item }}</a>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 </div>
 
