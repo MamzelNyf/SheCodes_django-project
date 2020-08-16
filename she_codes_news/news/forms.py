@@ -46,7 +46,8 @@ class UpdateStoryForm(ModelForm):
         labels = {
             'title': 'Story Title:',
             'content': 'Your story:',
-            'image': 'Your image url',
+            'image': 'Upload a new image',
+
         }
         widgets ={
             'title' : forms.TextInput(

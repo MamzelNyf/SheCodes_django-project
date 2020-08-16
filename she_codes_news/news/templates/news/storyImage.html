@@ -1,10 +1,10 @@
 <div class="story-image">
     <!-- include a link to the story with the id selected -->
     <a href="{% url 'news:story' story.id %}">
-        <div class="story-image_img">   
+        <div class="story-image-img">   
             <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
         </div>
-        <div class="story-image_txt">
+        <div class="story-image-txt">
             <h3>{{ story.title }}</h3>
         </div>
     </a>

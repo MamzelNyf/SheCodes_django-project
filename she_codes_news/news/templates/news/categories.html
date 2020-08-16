@@ -9,16 +9,33 @@
 {% endblock %}
 
 {% block content %}
-{% if category_post %}
+    
 <h2>{{ cats }}</h2>
-<ul>
-{% for story in category_post %}
-    <li>
-        {% include "./storyCard.html" with story=story %}`
-    </li>>
-{% endfor %}
-</ul>
-{% else %}
-    <h2>Sorry this page doesn't exist</h2>
-{% endif %}
+
+<div class="container container-story-card">
+    <div class="all-stories">
+        {% if category_post %}
+            {% for story in category_post %}
+                {% include "./storyCard.html" with story=story %}`
+            {% endfor %}
+        {% else %}
+            <h2>Sorry this page doesn't exist</h2>
+        {% endif %}
+    </div>
+    <div class="column-links">
+        {% if user.is_authenticated %}
+        <a href="{% url 'news:addNewsStory' %}">Write a new Story</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login to create a Story</a>
+        {% endif %}
+        <!-- Categories -->
+        {% if cat_menu %}
+            {% for item in cat_menu %}
+            <a href="{% url 'news:category' item.id %}">{{ item }}</a>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+
 {% endblock %}

@@ -1,16 +1,16 @@
-<div class="story-card" id="story-card-{{ position }}">
+<div class="story-card">
     <!-- include a link to the story with the id selected -->
-    <a href="{% url 'news:story' story.id %}">
+    
         <div>   
-            <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
-
+            <a href="{% url 'news:author' story.author.pk %}"><img src="{{ story.author.profile.avatar.url }}" class="story-card-avatar" alt="{{story.author}} avatar"></a>
         </div>
-        <div class="story-card-text">
-            <img src="{{ story.author.profile.avatar.url }}">
-            <h3>{{ story.title }}</h3>
-            <a href="{% url 'news:category' story.category %}">{{ story.category}}</a>
-            <a href="{% url 'news:author' story.author.pk %}">{{ story.author }}</a>
-            <h4>{{ story.pub_date |date:" d F, Y"}}</h4>
+        <div class="story-card-content">
+            <img class="story-card-img" src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
+            <div class="story-card-text">
+                <p class="story-card-category"><a href="{% url 'news:category' story.category %}" >{{ story.category}}</a></p>
+                <a href="{% url 'news:story' story.id %}" class="story-card-title"><h3>{{ story.title }}</h3></a>
+                <p><a href="{% url 'news:author' story.author.pk %}" class="story-card-author">Written by {{ story.author }}</a></p>
+                <p class="story-card-date">{{ story.pub_date |date:" d F, Y"}}</p>
+            </div>
         </div>
-    </a>
 </div>

@@ -8,8 +8,13 @@ from django.urls import reverse
 
 class Category(models.Model):
     name = models.CharField(max_length=128)
+    slug = models.SlugField(null=True)
+
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "categories"     
+
     def get_absolute_url(self):
         return reverse('index')
 
@@ -26,7 +31,7 @@ class NewsStory(models.Model):
         on_delete=models.CASCADE,
         related_name='published_stories'
     )
-    category = models.ForeignKey('Category', default='Design', on_delete=models.SET_DEFAULT)
+    category = models.ForeignKey('Category', default='Story', on_delete=models.SET_DEFAULT)
 
     def __str__(self):
         return f'{self.title} - by {self.author}'

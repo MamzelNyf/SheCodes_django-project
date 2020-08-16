@@ -37,11 +37,15 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_stories'] = NewsStory.objects.order_by('-pub_date')[:4]
+        context['latest_stories'] = NewsStory.objects.order_by('-pub_date')[:3]
         context['all_stories'] = NewsStory.objects.order_by('-pub_date')
         context['cat_menu'] = Category.objects.all() 
         return context
 
+def CategoryView(request, cats):
+    category_post = NewsStory.objects.filter(category=cats)
+    # query the category field defined in the model
+    return render(request, 'news/categories.html', {'cats':cats, 'category_post':category_post})
 class UpdateStoryView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     # update a post: UpdateView
     model = NewsStory
@@ -90,7 +94,3 @@ class AddCategoryView(LoginRequiredMixin, generic.CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-def CategoryView(request, cats):
-    category_post = NewsStory.objects.filter(category=cats)
-    # query the category field defined in the modekl
-    return render(request, 'news/categories.html', {'cats':cats.title, 'category_post':category_post})

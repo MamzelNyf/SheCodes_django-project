@@ -34,6 +34,7 @@ class SignUpView(CreateView):
 
 @login_required
 def profile(request):
+    print(request.method)
     if request.method == 'POST':
         u_form=CustomUserChangeForm(request.POST, instance=request.user)
         p_form=ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
@@ -74,3 +75,4 @@ def update_profile(request):
     }
     return render(request, 'users/updateProfile.html', context)
 
+# Try request.method == 'DELETE': to delete a profile

@@ -51,5 +51,5 @@ class ProfileUpdateForm(ModelForm):
                     'class': 'form-control text_field',
                     'type': 'date',
                 }),         
-                'avatar' :forms.FileInput,
+            'avatar' :forms.FileInput,
             }

@@ -3,17 +3,19 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <p>You are already logged in.</p>
-    <a href="{% url 'news:index' %}">Go back Home</a>
-{% else %}
-    <h2>Sign up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign up</button>
-    </form>
-    <h2> Do you already have an account?</h2>
-    <a href="{% url 'login' %}">Login to your account</a>
-{% endif %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <p>You are already logged in.</p>
+        <a href="{% url 'news:index' %}">Go back Home</a>
+    {% else %}
+        <h2>Sign up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn">Sign up</button>
+        </form>
+        <h2> Do you already have an account?</h2>
+        <a href="{% url 'login' %}">Login to your account</a>
+    {% endif %}
+</div>
 {% endblock %}

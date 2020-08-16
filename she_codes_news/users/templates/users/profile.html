@@ -6,15 +6,15 @@
 {% endblock %}
 {% block title %}{{ user.username }} Profile{% endblock %}
 {% block content %}
-<div class="">
-    <img class="profile" src="{{ user.profile.avatar.url }}" alt="{{ user.username }} profile picture">
+<div class="container container-profile">
+    <img class="profile-avatar" src="{{ user.profile.avatar.url }}" alt="{{ user.username }} profile picture">
     <div>
         <ul>
-            <li>Username: {{ user.username }}</li>
-            <li>Email: {{ user.email }}</li>
-            <li>Location: {{ user.profile.location }}</li>
-            <li>Birth Date: {{ user.profile.birth_date | date:"d M Y" }}</li>
-            <li>Bio: {{ user.profile.bio }}</li>
+            <li><span>Username</span>: {{ user.username }}</li>
+            <li><span>Email</span>: {{ user.email }}</li>
+            <li><span>Location:</span> {{ user.profile.location }}</li>
+            <li><span>Birth Date:</span> {{ user.profile.birth_date | date:"d M Y" }}</li>
+            <li><span>Bio:</span> {{ user.profile.bio }}</li>
 
         </ul>
     <!-- <h2>{{ user.username }} Profile</h2>
@@ -29,7 +29,7 @@
             <input type="submit" value="Update">
         </form>
     </div> -->
-    <a href=" {% url 'updateProfile'%}">Update your profile</a>
+    <a class="btn" href=" {% url 'updateProfile'%}">Update your profile</a>
 
 
 </div>
