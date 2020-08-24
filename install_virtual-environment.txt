@@ -21,8 +21,16 @@ python3 manage.py migrate
 - run the app:
 python3 manage.py runserver
 
+Delete the db if needed:
+rm db.sqlite3
+
+Create a superUser to access to admin:
+python manage.py createsuperuser
+
+
 ----------Start on the project-------------
 1- add the news app in settings.py of django folder(here she_codes_news folder
+python3 manage.py startapp news
 
 2- check the model of the news installed in models.py in news folder
 
