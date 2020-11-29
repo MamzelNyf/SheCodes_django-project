@@ -15,8 +15,8 @@ class Profile(models.Model):
     user = models.OneToOneField(User,blank=True, null=True, on_delete=models.CASCADE)
     birth_date = models.DateField(blank=True, null=True)
     avatar = models.ImageField(default='default.jpg', upload_to='profile_pics', blank=True, null=True)
-    bio = models.TextField(max_length=500, blank=True)
-    location = models.CharField(max_length=30, blank=True)
+    bio = models.TextField(max_length=500, blank=True, null=True)
+    location = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
