@@ -20,7 +20,7 @@
                     {% include "./storyCard.html" with story=story %}`
                 {% endfor %}
             {% else %}
-                <p>Sorry there is no news yest in this category. </br> Feel free to <a href="{% url 'news:addNewsStory' %}">Write a new Story</a></p>
+                <p>There is no story published in this category. </br> Feel free to <a href="{% url 'news:addNewsStory' %}">create a new Story</a></p>
             {% endif %}
         </div>
         <div class="column-links">
