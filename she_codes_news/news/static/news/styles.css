@@ -8,6 +8,9 @@
 .latest-stories{
     display:flex;
 }
+.latest-stories p{
+    padding: 1vh 10vw;
+}
 .story-image{
     position: relative ;
     min-width: 32vw;
