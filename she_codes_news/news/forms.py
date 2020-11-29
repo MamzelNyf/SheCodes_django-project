@@ -12,7 +12,7 @@ def categoryList():
             choice_list.append(item)
         return choice_list
     except (OperationalError, ProgrammingError): 
-        pass
+        return []
 
 
 class StoryForm(ModelForm):
