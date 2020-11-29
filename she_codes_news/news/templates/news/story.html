@@ -8,6 +8,7 @@
 
 {% block content %}
 <div class="container">
+    <div class="container-story">
     <h2>{{ story.title }}</h2>
     <div class="container-profile-avatar">
         <a href="{% url 'news:author' story.author.pk %}"><img class="profile-avatar-post" src="{{ story.author.profile.avatar.url }}"></a>
@@ -21,6 +22,7 @@
         <img src="{{ story.image.url|default:'https://picsum.photos/600' }}"> 
         <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
         {{ story.content|linebreaks }}
+    </div>
     </div>
     <div>
         {% if story.author == user %}

@@ -15,19 +15,21 @@
     </head>
 
     <body>
-        {% include './nav.html' %}
-            <header> 
-                <a href="{% url 'news:index' %}">
-                    <img src="{% static 'logo.svg' %}" alt="Cupcake Logo" width="100px">
-                    <h1>She {Codes} News</h1>
-                </a>
-            </header>
+        <div class="content">
+            {% include './nav.html' %}
+                <header> 
+                    <a href="{% url 'news:index' %}">
+                        <img src="{% static 'logo.svg' %}" alt="Cupcake Logo" width="100px">
+                        <h1>She {Codes} News</h1>
+                    </a>
+                </header>
 
-        <!-- content blocks here -->
-        <!-- This is where the content of other template comes -->
-        <main>{% block content %}{% endblock %}</main>
-        <footer>
-            Copyright ©  <a href="https://shedesign.dev" title="Fanny Lefert Portfolio">SheDesign.dev</a>
-        </footer>
+            <!-- content blocks here -->
+            <!-- This is where the content of other template comes -->
+            <main>{% block content %}{% endblock %}</main>
+            <footer>
+                Copyright ©  <a href="https://shedesign.dev" title="Fanny Lefert Portfolio">SheDesign.dev</a>
+            </footer>
+        </div>
     </body>
 </html>

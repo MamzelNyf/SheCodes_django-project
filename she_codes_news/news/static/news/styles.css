@@ -177,7 +177,10 @@ font-weight: bold;
 }
 
 /* Story Page */
-
+.container-story {
+    padding: 1vh 2vw;
+    background-color: white;
+}
 #story-content img {
     margin: 20px auto;
     text-align: center;

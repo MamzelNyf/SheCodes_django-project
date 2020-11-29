@@ -30,10 +30,10 @@
 
 @media (min-width: 900px) {
     :root {
-        --fs-h1: 3em;
-        --fs-h2: 2em;
+        --fs-h1: 2.5em;
+        --fs-h2: 1.5em;
         --fs-h3: 1.2em;
-        --fs-body: 1.15em;
+        --fs-body: 1.1em;
     }
 }
 
@@ -61,6 +61,11 @@ body {
     line-height: 1.6;
     font-family: var(--ff-body);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+flex: 1 0 auto;
 }
 
 img {
@@ -168,6 +173,8 @@ footer{
     color:var(--white);
     background-color: rgb(var(--dark));
     padding: 2vh 10vw;
+    flex-shrink: 0;
+    font-size:0.9rem;
 }
 footer a{
     font-family: var(--ff-body);
