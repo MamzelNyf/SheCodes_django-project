@@ -33,7 +33,7 @@
         --fs-h1: 2.5em;
         --fs-h2: 1.5em;
         --fs-h3: 1.2em;
-        --fs-body: 1.1em;
+        --fs-body: 1em;
     }
 }
 
@@ -50,6 +50,7 @@
 html {
     scroll-behavior: smooth;
     min-height: 100%;
+    overscroll-behavior: none;
 }
 
 body {
@@ -63,6 +64,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overscroll-behavior: none;
 }
 .content {
 flex: 1 0 auto;
