@@ -15,16 +15,19 @@ less requirements.txt (Ctrl+z to get out)
 - install all the dependencies listed in requirements.txt file:
 pip3 install -r requirements.txt
 
+- resize image... https://pillow.readthedocs.io/en/latest/
+pip install Pillow 
+
 - apply migration 
 python3 manage.py migrate
 
 - run the app:
 python3 manage.py runserver
 
-Delete the db if needed:
+- Delete the db if needed:
 rm db.sqlite3
 
-Create a superUser to access to admin:
+- Create a superUser to access to admin:
 python manage.py createsuperuser
 
 

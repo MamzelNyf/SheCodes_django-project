@@ -118,8 +118,15 @@ a:hover {
 /* Container */
 .container {
     margin: 0 auto;
-    padding: 8vh 10vw;
+    padding: 5vh 10vw;
 }
+@media (min-width: 600px){
+    .container {
+        margin: 0 auto;
+        padding: 1vh 10vw;
+    }
+}
+
 
 /* Header */
 header{
@@ -146,15 +153,12 @@ nav {
     background-color: rgb(var(--dark));
     color: var(--light);
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 2vh 10vw;
 }
 nav a{
-    padding-right:20px;
+    margin-right:20px;
     font-family: var(--ff-body);
-}
-nav a:last-child{
-    padding-right:50px;
 }
 nav a:hover{
     color: var(--white);
@@ -171,6 +175,11 @@ footer a{
 footer a:hover{
     text-decoration-color: var(--medium);
 }
+@media (min-width: 600px){
+    nav {
+        justify-content: flex-end;
+    }
+}
 
 
 
@@ -184,12 +193,15 @@ footer a:hover{
     cursor: pointer;
     border-radius: 40px;
     color: rgb(var(--dark));
-    margin: 20px 40px ;
+    margin: 20px 20px ;
+    font-family: var(--ff-title);
+    background-color: transparent;
+    font-size: 1rem;
 }
 
 .btn:hover {
     background-color: var(--white);
-    color: var(--accent);
+    color: #228152;
     text-decoration: none;
 }
 
@@ -198,8 +210,7 @@ footer a:hover{
 /* Forms style */
 form {
     width: 70%;
-    margin: 0 auto;
-    padding: 50px 0 0;
+    padding: 30px 0 0;
 }
 
 form label {
@@ -213,4 +224,10 @@ form .text_field {
 
 form .helptext{
     display:none;
+}
+.errorlist{
+    color: red!important;
+    font-size: 0.9rem;
+    list-style: none;
+    padding:0;
 }

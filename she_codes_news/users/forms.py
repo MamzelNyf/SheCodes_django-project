@@ -52,4 +52,5 @@ class ProfileUpdateForm(ModelForm):
                     'type': 'date',
                 }),         
             'avatar' :forms.FileInput,
+            'bio' : forms.Textarea(attrs={'rows':10, 'cols':25}),
             }

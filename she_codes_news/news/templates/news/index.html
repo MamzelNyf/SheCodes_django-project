@@ -26,7 +26,9 @@
         </div>
     </div>
 
-    <div class="container container-story-card">
+    <div class="container">  
+        <h2>All the News</h2>
+        <div class="container-story-card">
         <div class="all-stories">
             {% if latest_stories %}
             {% for story in all_stories %}
@@ -46,11 +48,16 @@
             <h3> Categories</h3>
             {% if cat_menu %}
                 {% for item in cat_menu %}
-                <a href="{% url 'news:category' item.id %}">{{ item }}</a>
+                <a href="{% url 'news:category' item.slug %}"><span class="category-title">{{ item }}</span></a>
                 {% endfor %}
             {% endif %}
             <h3> Author</h3>
-            
+            {% if cat_menu %}
+                {% for item in user_menu %}
+                <a href="{% url 'news:author' item.pk %}"><span>{{ item }}</span></a>
+                {% endfor %}
+            {% endif %}
+            </div>
         </div>
     </div>
 

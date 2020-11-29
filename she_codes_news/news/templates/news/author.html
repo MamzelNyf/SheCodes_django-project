@@ -10,15 +10,17 @@
     {% block content %}
 
     <div class="container">
-        <h2>{{ author.username }} stories</h2>
-        <div>
-            <img class="profile" src="{{ author.profile.avatar.url }}" alt="{{ author.username }} profile picture">
-            <p>{{ author.username }}</p>
+        <h2>All the news written by {{ author.username }}</h2>
+        <div class="container-profile-avatar">
+            <img class="profile-avatar-post" src="{{ author.profile.avatar.url }}" alt="{{ author.username }} profile picture">
+            <p>{{ author.profile.bio }}</p> 
         </div>
-        <div>
-                {% for story in author.published_stories.all %}
-                    {% include "./storyCard.html" with story=story %}
-                {% endfor %}
+        <div class=" container-story-card"></div>
+            <div class="all-stories">
+                    {% for story in author.published_stories.all %}
+                        {% include "./storyCard.html" with story=story %}
+                    {% endfor %}
+            </div>
         </div>
     </div>
 
