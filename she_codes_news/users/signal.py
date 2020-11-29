@@ -13,6 +13,6 @@ def create_profile(sender, instance, created , **kwargs):
         # **kwargs= accept any additional argument
 
 @receiver(post_save, sender=User)
-def save_profile(sender, instance , *args, **kwargs):
-    instance.profile.save(*args, **kwargs)
+def save_profile(sender, instance , **kwargs):
+    instance.profile.save()
     
