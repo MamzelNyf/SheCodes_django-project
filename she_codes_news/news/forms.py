@@ -1,12 +1,19 @@
 from django import forms
 from django.forms import ModelForm
 from .models import NewsStory, Category
+from django.db.utils import OperationalError, ProgrammingError
 
-choices = Category.objects.all().values_list('name', 'name')
-# select box needs double name to work
-choice_list=[]
-for item in choices:
-    choice_list.append(item)
+def categoryList():
+    try: 
+        choices = Category.objects.all().values_list('name', 'name')
+        # select box needs double name to work
+        choice_list=[]
+        for item in choices:
+            choice_list.append(item)
+        return choice_list
+    except (OperationalError, ProgrammingError): 
+        pass
+
 
 class StoryForm(ModelForm):
     class Meta:
@@ -23,7 +30,7 @@ class StoryForm(ModelForm):
             'title' : forms.TextInput(
                 attrs={'class': 'text_field','placeholder' : 'Story Title',}),
             'category': forms.Select(
-                choices=choice_list, 
+                choices=categoryList(), 
                 # choices has to be befor attrs
                 attrs={'class': 'select'}),
             'content' : forms.Textarea(
