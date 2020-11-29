@@ -1,0 +1,233 @@
+/* 1. Configuration */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    /* Main colours */
+    /* --dark: #050505; */
+    --dark: 5,5,5;
+    --medium: #96fbc4;
+    --light: #d6fcfb;
+    --white: #fff;
+    --accent: #33c17a;
+
+    /* Font Settingss */
+    --fw-reg: 400;
+    --fw-bold: 600;
+    --ff-body: 'Poppins', sans-serif;
+    --ff-title: 'Oswald', sans-serif;
+    --fs-h1: 2.3rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.3rem;
+    --fs-body: 1.05rem;
+
+    /* Box-shadow */
+    --bs: 0.25em 0.25em 0.75em rgba(61, 64, 91, .25),
+        0.125em 0.125em 0.25em rgba(61, 64, 91, .15);
+
+    /* Padding container */
+    --bloc: 5vh 10vw;
+}
+
+@media (min-width: 900px) {
+    :root {
+        --fs-h1: 3em;
+        --fs-h2: 2em;
+        --fs-h3: 1.2em;
+        --fs-body: 1.15em;
+    }
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* General Styles */
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    background-image: 
+        url("pattern.png"),
+        linear-gradient(to top, var(--medium) 0%, var(--light) 100%);
+    color: var(--dark);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+    font-family: var(--ff-body);
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+strong {
+    font-weight: var(--fw-bold);
+}
+
+:focus {
+    outline: 2px solid var(--light);
+    outline-offset: 3px;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: initial;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0.3em 0;
+    font-family: var(--ff-title);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    color: var(--dark);
+    font-weight: var(--fw-bold);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+a {
+    font-family: var(--ff-title);
+    font-size: inherit;
+    text-decoration: none;
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--dark);
+    text-decoration: underline;
+}
+
+/* 2. Layout-related sections */
+/* Container */
+.container {
+    margin: 0 auto;
+    padding: 5vh 10vw;
+}
+@media (min-width: 600px){
+    .container {
+        margin: 0 auto;
+        padding: 1vh 10vw;
+    }
+}
+
+
+/* Header */
+header{
+    padding: 3vh 10vw;
+}
+header a{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: var(--dark);
+}
+header a:hover{
+    text-decoration: none;
+    color: var(--accent);
+
+}
+header a h1:hover{
+    color: var(--accent);
+}
+/* Navigation */
+nav {
+    position: sticky;
+    width:100%;
+    background-color: rgb(var(--dark));
+    color: var(--light);
+    display: flex;
+    justify-content: center;
+    padding: 2vh 10vw;
+}
+nav a{
+    margin-right:20px;
+    font-family: var(--ff-body);
+}
+nav a:hover{
+    color: var(--white);
+    text-decoration-color: var(--medium);
+}
+footer{
+    color:var(--white);
+    background-color: rgb(var(--dark));
+    padding: 2vh 10vw;
+}
+footer a{
+    font-family: var(--ff-body);
+}
+footer a:hover{
+    text-decoration-color: var(--medium);
+}
+@media (min-width: 600px){
+    nav {
+        justify-content: flex-end;
+    }
+}
+
+
+
+
+/* 3. Components */
+.btn {
+    display: inline-block;
+    padding: .5em 1.5em;
+    border: 2px rgb(var(--dark)) solid;    
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 40px;
+    color: rgb(var(--dark));
+    margin: 20px 20px ;
+    font-family: var(--ff-title);
+    background-color: transparent;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: #228152;
+    text-decoration: none;
+}
+
+
+
+/* Forms style */
+form {
+    width: 70%;
+    padding: 30px 0 0;
+}
+
+form label {
+    display: block;
+}
+
+form .text_field {
+    font-family: var(--ff-body);
+    min-width: 210px;
+}
+
+form .helptext{
+    display:none;
+}
+.errorlist{
+    color: red!important;
+    font-size: 0.9rem;
+    list-style: none;
+    padding:0;
+}
