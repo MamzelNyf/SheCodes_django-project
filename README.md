@@ -1,4 +1,4 @@
-# SheCodes Django Project
+# SheCodes Django Project: News Blog
 
 **Objectives**
 - Understand what a web framework is.
